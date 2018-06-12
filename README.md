@@ -1,5 +1,5 @@
 # Zappara Müzik
-Zappara Bot'un Müzik Botu Geldi<br/>
+Zappara Bot'un Müzik Botu Geldi<br/><br/><br/>
 <img src="https://cdn.discordapp.com/attachments/440820385643233290/449932578833825816/unnamed_1.gif">
 
 # Müzik Komutları
@@ -11,7 +11,7 @@ Zappara Bot'un Müzik Botu Geldi<br/>
 
 # Geliştiricisi
 Enes Onur Ata#9427
-<img src="https://cdn.discordapp.com/attachments/440820385643233290/455367016396750848/unnamed.jpg">
+<img src="https://cdn.discordapp.com/attachments/440820385643233290/455367016396750848/unnamed.jpg" alt="Enes Onur Ata#9427" height="42" width="42">
 
 # Botumuzu eklemek için veya destek vermek için
 DiscordBots.org Linki Yakında...
