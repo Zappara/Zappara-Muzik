@@ -15,3 +15,4 @@ Enes Onur Ata#9427
 DiscordBots.org Linki Yakında...
 
 <img src="https://cdn.discordapp.com/attachments/440820385643233290/455082729722216448/mqdefault.jpg">
+<img src="https://media.discordapp.net/attachments/455122906033291285/455123174984777729/discord_tr.png?width=300&height=300">
