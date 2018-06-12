@@ -3,10 +3,10 @@ Zappara Bot'un Müzik Botu Geldi
 
 # Müzik Komutları
 /çal <şarkıismi | linki>
-/dur
-/devamet
-/kuyruk
-/ses <ses seviyesi>
+<br/>/dur
+<br/>/devamet
+<br/><br/>/kuyruk
+<br/>/ses <ses seviyesi>
 
 # Geliştiricisi
 Enes Onur Ata#9427
