@@ -195,4 +195,4 @@ function play(guild, song) {
 	serverQueue.textChannel.send(`:notes: **${song.title}** Adlı Şarkı Başladı`);
 }
 
-client.login(TOKEN);
+client.login(process.env.BOT_TOKEN);
