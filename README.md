@@ -11,7 +11,7 @@ Zappara Bot'un Müzik Botu Geldi<br/><br/><br/>
 
 # Geliştiricisi
 Enes Onur Ata#9427
-<img src="https://cdn.discordapp.com/attachments/440820385643233290/455367016396750848/unnamed.jpg" alt="Enes Onur Ata#9427" height="42" width="42">
+<img src="https://cdn.discordapp.com/attachments/440820385643233290/455367016396750848/unnamed.jpg" alt="Enes Onur Ata#9427" height="150" width="150">
 
 # Botumuzu eklemek için veya destek vermek için
 DiscordBots.org Linki Yakında...
