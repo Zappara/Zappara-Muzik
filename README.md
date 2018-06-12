@@ -1,5 +1,6 @@
 # Zappara Müzik
 Zappara Bot'un Müzik Botu Geldi
+<img src="https://cdn.discordapp.com/attachments/440820385643233290/449932578833825816/unnamed_1.gif">
 
 # Müzik Komutları
 /çal <şarkıismi | linki>
