@@ -5,7 +5,7 @@ Zappara Bot'un Müzik Botu Geldi
 /çal <şarkıismi | linki>
 <br/>/dur
 <br/>/devamet
-<br/><br/>/kuyruk
+<br/>/kuyruk
 <br/>/ses <ses seviyesi>
 
 # Geliştiricisi
