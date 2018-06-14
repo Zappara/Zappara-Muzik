@@ -236,35 +236,20 @@ var prefix = ayarlar.prefix;
         }, 1800000);
 	})
 
-	fs.readdir("./komutlar/", (err, files) => {
-    console.log(`Yuklendi ${files.length} komut.`)
-	if(err) console.log(err);
-	let jsfile = files.filter(f => f.split(".").pop() === "js");
-	if(jsfile.length <= 0){
-	console.log("Komutlar bulunamadi.");
-	return;
-	}
+	//DOSYALARI KOMUT ALGILAMASI ICIN
+	client.on("message", async msg => {
+  	if (msg.author.bot) return;
+  	if(msg.content.indexOf(prefix) !== 0) return;
 
+  	const args = msg.content.slice(prefix.length).trim().split(/ +/g);
+  	const command = args.shift().toLowerCase();
+  	const event = msg.content.toLower
 
-	jsfile.forEach((f, i) =>{
-	let props = require(`./komutlar/${f}`);
-	console.log(`Yuklendi : ${f}`);
-	bot.commands.set(props.help.name, props);
+  	try {
+    	let commandFile = require(`./komutlar/${command}.js`);
+    	commandFile.run(client, msg, args);
+  	} catch (err) {}
 	});
-	});
-
-	let args = message.content.slice(prefix.length).trim().split(" ");
-	let cmd = args.shift().toLowerCase();
-	if(message.author.bot) return undefined;
-	if(!message.content.startsWith(prefix)) return undefined;
-   	message.prefix = prefix;
-
-	try {
-	let commandFile = require(`./komutlar/${cmd}.js`);
-	commandFile.run(bot, message, args);
-	if(!commandFile) return message.channel.send("Bu isimde bir komut yok!");
-	} catch (e) { console.log(e) }
-
 
 
 //Haşmetli TOKEN
