@@ -204,8 +204,8 @@ let client = new Discord.Client();
 bot.commands = new Discord.Collection();
 const ayarlar = require("./ayarlar.json")
 var prefix = ayarlar.prefix;
-const DBL = require("dblapi.js");
-const dbl = new DBL(process.env.DBL_TOKEN, bot);
+/*const DBL = require("dblapi.js");
+const dbl = new DBL(process.env.DBL_TOKEN, bot);*/
 message.prefix = prefix;
 var prefix = ayarlar.prefix;
 
