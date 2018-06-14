@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const ayarlar = require("./ayarlar.json");
 const prefix = ayarlar.prefix;
-module.exports.run = async (bot, message, args) => {
+exports.run = async (bot, message, args) => {
 
 let embed = new Discord.RichEmbed()
     .setTitle("Müzik")
@@ -20,6 +20,6 @@ let embed = new Discord.RichEmbed()
 message.channel.send(embed);
 }
 
-module.exports.help = {
+exports.help = {
   name: "yardım"
 }
