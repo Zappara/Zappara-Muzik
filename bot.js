@@ -257,6 +257,14 @@ client.on("guildCreate", guild => {
 client.on("guildDelete", guild => {
   client.user.setStatus("STREAMING"); 
 });
+//Oynuyor
+client.on("ready", () => {
+  client.user.setStatus("STREAMING");
+  client.user.setActivity(
+    "Müzik | {ayarlar.prefix} | v2 | Sahip: Enes Onur Ata#9427",
+    {type: "STREAMING"}
+  );
+});
 
 //Komut Algılaması
 const Discord = require("discord.js");
