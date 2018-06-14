@@ -197,7 +197,6 @@ function play(guild, song) {
 
 
 //Komut Algılaması
-/*
 const Discord = require("discord.js");
 const fs = require("fs");
 let bot = new Discord.Client();
@@ -262,8 +261,6 @@ var prefix = ayarlar.prefix;
 	commandFile.run(bot, message, args);
 	if(!commandFile) return message.channel.send("Bu isimde bir komut yok!");
 	} catch (e) { console.log(e) }
-
-	*/
 
 
 
