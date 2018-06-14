@@ -232,6 +232,20 @@ client.on('guildDelete', guild => {
         .addField("Toplam Kanal", guild.channels.size, true)
          channel.send(embed);
     });
+//Özelden Yazanlar
+    client.on("message", message => {
+    const dmchannel = client.channels.find("name", "özelden-yazanlar");
+    if (message.channel.type === "dm") {
+        if (message.author.id === client.user.id) return;
+        dmchannel.sendMessage("", {embed: {
+                color: RANDOM,
+                title: `: ${message.author.tag}`,
+                description: `${message.content}`
+              }})
+    }
+    if (message.channel.bot) return;
+});
+
 
 //Komut Algılaması
 const Discord = require("discord.js");
