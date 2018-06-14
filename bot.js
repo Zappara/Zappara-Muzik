@@ -31,7 +31,7 @@ client.on('message', async msg => { // eslint-disable-line
 	let command = msg.content.toLowerCase().split(' ')[0];
 	command = command.slice(PREFIX.length)
 
-	if (command === 'oynat') {
+	if (command === 'çal') {
 		const voiceChannel = msg.member.voiceChannel;
 		if (!voiceChannel) return msg.channel.send(':x: Lutfen Sesli Bir Kanala Giriniz.');
 		const permissions = voiceChannel.permissionsFor(msg.client.user);
@@ -49,7 +49,7 @@ client.on('message', async msg => { // eslint-disable-line
 				const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
 				await handleVideo(video2, msg, voiceChannel, true); // eslint-disable-line no-await-in-loop
 			}
-			return msg.channel.send(`âœ… Oynatma Listesi: **${playlist.title}** Listeye Eklendi`);
+			return msg.channel.send(`Oynatma Listesi: **${playlist.title}** Listeye Eklendi`);
 		} else {
 			try {
 				var video = await youtube.getVideo(url);
@@ -73,7 +73,7 @@ Hangi şarkıyı seçmek istiyorsun? 1-10 Kadar sayı seç.
 						});
 					} catch (err) {
 						console.error(err);
-						return msg.channel.send(':x: Geçersiz değer girildi.');
+						return msg.channel.send(':x: Süre bitti. Biraz hızlı yaz!');
 					}
 					const videoIndex = parseInt(response.first().content);
 					var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
@@ -194,5 +194,81 @@ function play(guild, song) {
 
 	serverQueue.textChannel.send(`:notes: **${song.title}** Adlı Şarkı Başladı`);
 }
+
+
+//Komut Algılaması
+/*
+const Discord = require("discord.js");
+const fs = require("fs");
+let bot = new Discord.Client();
+let client = new Discord.Client();
+bot.commands = new Discord.Collection();
+const ayarlar = require("./ayarlar.json")
+var prefix = ayarlar.prefix;
+const DBL = require("dblapi.js");
+const dbl = new DBL(process.env.DBL_TOKEN, bot);
+message.prefix = prefix;
+var prefix = ayarlar.prefix;
+
+	bot.on('ready', () => {
+	console.log("Yukleniyor...");
+	setTimeout(function(){
+	console.log("Basariyla yuklendi.");
+	}, 1000);
+	function botStatus() {
+        let status = [
+            `Prefix 》${botconfig.prefix}`,
+            `Teşekkürler 》${bot.guilds.size} sunucu.`,
+	    `Teşekkürler 》${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} kullanıcı.`,
+            `Yardıma mı ihtiyacınız var? 》 ${botconfig.prefix}yardım`,
+ 	    `Müzik dinlemek için 》 ${botconfig.prefix}çal <şarkı_ismi yada linki>`,
+	    `Müziği durdurmak için 》 ${botconfig.prefix}dur`,
+	    `Sıradaki müziğe geçmek için 》${botconfig.prefix}geç`,
+	    `Şarkı kuyruğuna bakmak için 》${botconfig.prefix}kuyruk `,
+	    `Ses seviyesini ayarlamak için 》${botconfig.prefix}ses <ses_seviyesi>`,
+	    `Sizlere 7/24 Hizmet Veriyoruz!`,
+	    `©2018 Müzik™ by Enes Onur Ata#9427`,
+            `Botun Geliştiricisi 》 Enes Onur Ata#9427`
+        ];
+        let rstatus = Math.floor(Math.random() * status.length);
+
+        bot.user.setActivity(status[rstatus], {Type: 'STREAMING'});        // BOT STATUS
+      }; setInterval(botStatus, 20000)
+        setInterval(() => {
+        dbl.postStats(bot.guilds.size)
+        }, 1800000);
+	})
+
+	fs.readdir("./komutlar/", (err, files) => {
+    console.log(`Yuklendi ${files.length} komut.`)
+	if(err) console.log(err);
+	let jsfile = files.filter(f => f.split(".").pop() === "js");
+	if(jsfile.length <= 0){
+	console.log("Komutlar bulunamadi.");
+	return;
+	}
+
+
+	jsfile.forEach((f, i) =>{
+	let props = require(`./komutlar/${f}`);
+	console.log(`Yuklendi : ${f}`);
+	bot.commands.set(props.help.name, props);
+	});
+	});
+
+
+	try {
+	let commandFile = require(`./komutlar/${cmd}.js`);
+	commandFile.run(bot, message, args);
+	if(!commandFile) return message.channel.send("Bu isimde bir komut yok!");
+	} catch (e) { console.log(e) }
+
+
+
+
+
+
+
+
 
 client.login(process.env.BOT_TOKEN);
