@@ -200,7 +200,6 @@ function play(guild, song) {
 const Discord = require("discord.js");
 const fs = require("fs");
 let bot = new Discord.Client();
-let client = new Discord.Client();
 bot.commands = new Discord.Collection();
 const ayarlar = require("./ayarlar.json")
 var prefix = ayarlar.prefix;
