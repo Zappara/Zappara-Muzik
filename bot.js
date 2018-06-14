@@ -253,16 +253,17 @@ var prefix = ayarlar.prefix;
 	});
 	});
 
+	let args = message.content.slice(prefix.length).trim().split(" ");
+	let cmd = args.shift().toLowerCase();
+	if(message.author.bot) return undefined;
+	if(!message.content.startsWith(prefix)) return undefined;
+   	message.prefix = prefix;
 
 	try {
 	let commandFile = require(`./komutlar/${cmd}.js`);
 	commandFile.run(bot, message, args);
 	if(!commandFile) return message.channel.send("Bu isimde bir komut yok!");
 	} catch (e) { console.log(e) }
-
-
-
-
 
 
 
