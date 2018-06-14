@@ -29,7 +29,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'reboot',
+  name: 'yeniden-başlat',
   description: 'Botu Yeniden Başlatır',
-  usage: 'reboot'
+  usage: 'yeniden-başlat'
 };
