@@ -273,8 +273,6 @@ let bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 const ayarlar = require("./ayarlar.json")
 var prefix = ayarlar.prefix;
-/*const DBL = require("dblapi.js");
-const dbl = new DBL(process.env.DBL_TOKEN, bot);*/
 
 	//DOSYALARI KOMUT ALGILAMASI ICIN
 	client.on("message", async msg => {
