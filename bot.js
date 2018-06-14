@@ -269,35 +269,6 @@ var prefix = ayarlar.prefix;
 const dbl = new DBL(process.env.DBL_TOKEN, bot);*/
 var prefix = ayarlar.prefix;
 
-	bot.on('ready', () => {
-	console.log("Yukleniyor...");
-	setTimeout(function(){
-	console.log("Basariyla yuklendi.");
-	}, 1000);
-	function botStatus() {
-        let status = [
-            `Prefix 》${botconfig.prefix}`,
-            `Teşekkürler 》${bot.guilds.size} sunucu.`,
-	    `Teşekkürler 》${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} kullanıcı.`,
-            `Yardıma mı ihtiyacınız var? 》 ${botconfig.prefix}yardım`,
- 	    `Müzik dinlemek için 》 ${botconfig.prefix}çal <şarkı_ismi yada linki>`,
-	    `Müziği durdurmak için 》 ${botconfig.prefix}dur`,
-	    `Sıradaki müziğe geçmek için 》${botconfig.prefix}geç`,
-	    `Şarkı kuyruğuna bakmak için 》${botconfig.prefix}kuyruk `,
-	    `Ses seviyesini ayarlamak için 》${botconfig.prefix}ses <ses_seviyesi>`,
-	    `Sizlere 7/24 Hizmet Veriyoruz!`,
-	    `©2018 Müzik™ by Enes Onur Ata#9427`,
-            `Botun Geliştiricisi 》 Enes Onur Ata#9427`
-        ];
-        let rstatus = Math.floor(Math.random() * status.length);
-
-        bot.user.setActivity(status[rstatus], {Type: 'STREAMING'});        // BOT STATUS
-      }; setInterval(botStatus, 20000)
-        setInterval(() => {
-        dbl.postStats(bot.guilds.size)
-        }, 1800000);
-	})
-
 	//DOSYALARI KOMUT ALGILAMASI ICIN
 	client.on("message", async msg => {
   	if (msg.author.bot) return;
