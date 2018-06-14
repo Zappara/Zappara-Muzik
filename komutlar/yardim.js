@@ -6,14 +6,14 @@ exports.run = (client, message) => {
   const embed = new Discord.RichEmbed()
   
   .setTitle("Bot Komutları")
-  .setAuthor("Rangin ∞ | Kodlar (r!) İle Başlar", "")
+  .setAuthor("Müzik ∞ | Kodlar ${ayarlar.prefix} İle Başlar", "")
   .setColor("RANDOM")
-  .setDescription('davet • Botun davet linkini atar.\nYeni Kodlar Gelicek\nbug • Bottaki bugu bildirmenizi sağlar.\nping • Botun pingini gösterir.\nsunucubilgi • Bu komutu hangi sunucuda kullanıysanız oranın bilgisini verir.\ntavsiye • Botun sahibine verdiğiniz tavsiyeyi gönderir.\n')
+  .setDescription('davet • Botun davet linkini atar.\nYeni Kodlar Gelicek\nbug • Bottaki bugu bildirmenizi sağlar.\nping • Botun pingini gösterir.\nsunucu • Bu komutu hangi sunucuda kullanıysanız oranın bilgisini verir.')
   .setFooter("")
   .setThumbnail("")
   .setTimestamp()
   
-  .addField("Moderasyon Komutları", "ban • Belirttiğiniz kişiyi sunucudan banlar.\nkick • Belirttiğiniz kişiyi sunucudan atar.\nsustur • Belirttiğin kişiyi susturur.\ntemizle • Sohbeti belirttiğin sayı kadar siler.\nunban • Belirttiğin kişinin sunucudaki yasağını kaldırır.\noylama • Oylama Açarsınız.\nhastebin • Hastebine Kod Ekler.\n")
+  .addField("Moderasyon Komutları", "sustur • Belirttiğin kişiyi susturur.\ntemizle • Sohbeti belirttiğin sayı kadar siler.")
   .addField("Müzik Kodları", "çal• Müzik Çalar.\ngeç • Müzik Atlar\ndur • Müziği Durdurur\nkuyruk • müzik listesi\n", true)
   .addBlankField(true)
   .addField(" Kullanıcı Komutları", "• Yeni Kodlar Gelicek\nkurucu • Sunucunun kurucusunu gösterir.\nkullanıcıbilgim • Bu komutu kullanan her kimse hakkında bilgi verir.\n", true)
@@ -23,7 +23,7 @@ exports.run = (client, message) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['bot bilgi', 'botbilgi', 'bb', 'botb', 'bbot', 'hakkında', 'bot hakkında', 'bothakkında'],
+  aliases: ['help', '@Müzik', 'komutlar'],
   permLevel: 0
 };
 
