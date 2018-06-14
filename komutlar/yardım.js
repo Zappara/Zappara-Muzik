@@ -14,6 +14,7 @@ let embed = new Discord.RichEmbed()
     .addField("`" + prefix +"ses`", "Müziğin sesini ayarlar")
     .addField("`" + prefix +"devamet`", "Durdurulan müziği devam ettirilir")
     .setImage("https://cdn.discordapp.com/attachments/440820385643233290/449932578833825816/unnamed_1.gif")
+    .setThumbnail("https://cdn.discordapp.com/emojis/424321045034696724.gif")
     .setFooter("Müzik Bot | ${prefix}davet | Sahip: Enes Onur Ata#9427 | 7/24")
 
 message.channel.send(embed);
