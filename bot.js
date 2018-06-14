@@ -205,7 +205,6 @@ const ayarlar = require("./ayarlar.json")
 var prefix = ayarlar.prefix;
 /*const DBL = require("dblapi.js");
 const dbl = new DBL(process.env.DBL_TOKEN, bot);*/
-message.prefix = prefix;
 var prefix = ayarlar.prefix;
 
 	bot.on('ready', () => {
@@ -260,8 +259,6 @@ var prefix = ayarlar.prefix;
 	commandFile.run(bot, message, args);
 	if(!commandFile) return message.channel.send("Bu isimde bir komut yok!");
 	} catch (e) { console.log(e) }
-	
-	bot.on("message", async message => {});
 
 
 
