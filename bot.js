@@ -261,7 +261,7 @@ client.on("guildDelete", guild => {
 client.on("ready", () => {
   client.user.setStatus("STREAMING");
   client.user.setActivity(
-    "Müzik | {ayarlar.prefix} | v2 | Sahip: Enes Onur Ata#9427",
+    "Müzik | ${prefix} | v2 | Sahip: Enes Onur Ata#9427",
     {type: "STREAMING"}
   );
 });
@@ -275,7 +275,6 @@ const ayarlar = require("./ayarlar.json")
 var prefix = ayarlar.prefix;
 /*const DBL = require("dblapi.js");
 const dbl = new DBL(process.env.DBL_TOKEN, bot);*/
-var prefix = ayarlar.prefix;
 
 	//DOSYALARI KOMUT ALGILAMASI ICIN
 	client.on("message", async msg => {
