@@ -260,6 +260,8 @@ var prefix = ayarlar.prefix;
 	commandFile.run(bot, message, args);
 	if(!commandFile) return message.channel.send("Bu isimde bir komut yok!");
 	} catch (e) { console.log(e) }
+	
+	bot.on("message", async message => {});
 
 
 
