@@ -195,6 +195,43 @@ function play(guild, song) {
 	serverQueue.textChannel.send(`:notes: **${song.title}** Adlı Şarkı Başladı`);
 }
 
+client.on('message', async msg => {
+  if (msg.content.toLowerCase() === 'sa') {
+    await msg.react('🇦');
+    msg.react('🇸');
+  }
+});
+client.on('message', msg => {
+  if (msg.content === 'Müzik') {
+   	msg.reply('Yardıma mı ihtiyacın var? \n ${ayarlar.prefix}yardım');
+  }
+});
+
+//BOTU EKLEYEN SUNUCU VARSA LOG VERECEK
+client.on('guildCreate', guild => {
+    let channel = bot.channels.get("456795636201947137")
+        const embed = new Discord.RichEmbed()
+        .setColor("#05fcc6")
+        .setAuthor(`Beni Eklediler: ${guild.name}`)
+        .setThumbnail(guild.iconURL)
+        .addField("Kurucu", guild.owner)
+        .addField("Sunucu ID", guild.id, true)
+        .addField("Toplam Kullanıcı", guild.memberCount, true)
+        .addField("Toplam Kanal", guild.channels.size, true)
+         channel.send(embed);
+    });
+client.on('guildDelete', guild => {
+    let channel = client.channels.get("456795636201947137")
+        const embed = new Discord.RichEmbed()
+        .setColor("#fc0505")
+        .setAuthor(`Beni Attılar: ${guild.name}`)
+        .setThumbnail(guild.iconURL)
+        .addField("Kurucu", guild.owner)
+        .addField("Sunucu ID", guild.id, true)
+        .addField("Toplam Kullanıcı", guild.memberCount, true)
+        .addField("Toplam Kanal", guild.channels.size, true)
+         channel.send(embed);
+    });
 
 //Komut Algılaması
 const Discord = require("discord.js");
@@ -252,5 +289,6 @@ var prefix = ayarlar.prefix;
 	});
 
 
+	
 //Haşmetli TOKEN
 client.login(process.env.BOT_TOKEN);
