@@ -245,7 +245,18 @@ client.on('guildDelete', guild => {
     }
     if (message.channel.bot) return;
 });
-
+//AÇILINCA DURUMUNUN YAYINDA YAPICAZ
+client.on('ready', () => {
+  client.user.setStatus("STREAMING");
+});
+//Sunucunun biri botu ekleyince
+client.on("guildCreate", guild => {
+  client.user.setStatus("STREAMING"); 
+});
+//Sunucunun biri botu atınca (niye ekledin ? niye atıyorsun? kardeşim) yayında yapıcaz
+client.on("guildDelete", guild => {
+  client.user.setStatus("STREAMING"); 
+});
 
 //Komut Algılaması
 const Discord = require("discord.js");
