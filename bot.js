@@ -263,6 +263,7 @@ var prefix = ayarlar.prefix;
 	if(!commandFile) return message.channel.send("Bu isimde bir komut yok!");
 	} catch (e) { console.log(e) }
 
+	*/
 
 
 
@@ -270,5 +271,5 @@ var prefix = ayarlar.prefix;
 
 
 
-
+//Haşmetli TOKEN
 client.login(process.env.BOT_TOKEN);
