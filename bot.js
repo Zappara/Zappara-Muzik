@@ -40,7 +40,7 @@ client.on("ready", () => {
   console.log(`${client.channels.size} kanala hizmet veriyor`);
   console.log("Prefix: " + prefix);
   console.log("Bot ID'si: " + client.user.id);
-  console.log("Bot Isim: " + client.user.username);
+  console.log(`Bot Isim: Muzik`; /*client.user.username)*/
   console.log('[------------] Muzik [-------------]');
 });
 
@@ -48,7 +48,7 @@ client.on("ready", () => {
 client.on('guildCreate', guild => {
   let channel = bot.channels.get("456795636201947137")
   const embed = new Discord.RichEmbed()
-    .setColor("#05fcc6")
+    .setColor("#109876")
     .setAuthor(`EKLEDİLER`)
     .setThumbnail(guild.iconURL)
     .addField("Sunucu", guild.name)
@@ -62,7 +62,7 @@ client.on('guildCreate', guild => {
 client.on('guildDelete', guild => {
   let channel = client.channels.get("456795636201947137")
   const embed = new Discord.RichEmbed()
-    .setColor("#fc0505")
+    .setColor("#800000")
     .setAuthor(`ATTILAR`)
     .setThumbnail(guild.iconURL)
     .addField("Sunucu", guild.name)
@@ -75,35 +75,36 @@ client.on('guildDelete', guild => {
 
 //Özelden Yazanlar
 client.on("message", message => {
-  const dmchannel = client.channels.find("name", "müzik_dm");
-  if (message.channel.type === "dm") {
-    if (message.author.id === client.user.id) return;
-    dmchannel.sendMessage("", {
-      embed: {
-        color: RANDOM,
-        title: `Yazan: ${message.author.tag}`,
-        description: `Mesaj: ${message.content}`
-      }
-    })
-  }
-  if (message.channel.bot) return;
+    const dmchannel = client.channels.find("name", "müzik_dm");
+    if (message.channel.type === "dm") {
+        if (message.author.id === client.user.id) return;
+        dmchannel.sendMessage("", {embed: {
+                color: FFFF00,
+                title: `**Yazan:** ${message.author.tag}`,
+                description: `**Mesaj:**${message.content}`
+              }})
+    }
+    if (message.channel.bot) return;
 });
 
-//Twitch Değişen Oynuyor
-const chalk = require('chalk');
-const moment = require('moment');
-const snekfetch = require('snekfetch');
-const api = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM1NDIzMTYzMDQwNTA0MjE3NiIsImJvdCI6dHJ1ZSwiaWF0IjoxNTE2Mjc0MTQ1fQ.2H9LjNjH6WFp5LmswfXAYSDsHQn2JSPPgbgf1WjSi_c';
-module.exports = client => {
-  snekfetch.post(`https://discordbots.org/api/bots/${client.user.id}/stats`).set('Authorization', api).send({
-    server_count: client.guilds.size
-  })
-  var Games = ["Müzik Bot | Türkçe Dil Desteği", "Yeni Nesil Bot | v${ayarlar.sürüm} | JavaScript ile yazılmıştır", `${ayarlar.prefix}yardım | ${client.guilds.size} sunucu | ${client.users.size} kullanıcı`];
-  setInterval(function() {
-    var random = Math.floor(Math.random() * (Games.length - 0 + 1) + 0);
-    client.user.setGame(Games[random], "https://www.twitch.tv/enesonurata");
-  }, 2 * 2500);
-};
+//OYNUYOR
+bot.on('ready', () => {
+	function botStatus() {
+        let status = [
+            `My Default Prefix ${botconfig.prefix}.`,
+            `in ${bot.guilds.size} guilds.`,
+            `in ACH.`,
+            `with my dev Tritax#2924`,
+            `with ${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} users.`
+        ];
+        let rstatus = Math.floor(Math.random() * status.length);
+
+        bot.user.setActivity(status[rstatus], {Type: 'STREAMING'});        // BOT STATUS
+      }; setInterval(botStatus, 20000)
+        setInterval(() => {
+        dbl.postStats(bot.guilds.size)
+        }, 1800000);
+	})
 
 //Bot İşlemleri
 client.on('ready', () => console.log('Bot Baglandi!'));
