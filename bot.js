@@ -91,18 +91,21 @@ client.on("message", message => {
 client.on('ready', () => {
 	function botStatus() {
         let status = [
-            `My Default Prefix ${botconfig.prefix}.`,
-            `in ${bot.guilds.size} guilds.`,
-            `in ACH.`,
-            `with my dev Tritax#2924`,
-            `with ${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} users.`
+            `${ayarlar.prefix}yardım`,
+            `Teşekkürler: ${client.guilds.size} sunucu`,
+            `Teşekkürler: ${client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} kullanıcı`,
+            `Tüm Hakları Enes Onur Ata'ya aittir`,
+            `Yeni Nesil Bot`,
+	    `Türkçe Bot`,
+	    `Sürüm: v${ayarlar.sürüm}`,
+	    `Prefix: ${ayarlar.prefix}`
         ];
         let rstatus = Math.floor(Math.random() * status.length);
 
-        bot.user.setActivity(status[rstatus], {Type: 'STREAMING'});        // BOT STATUS
+        client.user.setActivity(status[rstatus], {Type: 'STREAMING'});        // BOT STATUS
       }; setInterval(botStatus, 20000)
         setInterval(() => {
-        dbl.postStats(bot.guilds.size)
+        dbl.postStats(client.guilds.size)
         }, 1800000);
 	})
 
