@@ -88,7 +88,7 @@ client.on("message", message => {
 });
 
 //OYNUYOR
-bot.on('ready', () => {
+client.on('ready', () => {
 	function botStatus() {
         let status = [
             `My Default Prefix ${botconfig.prefix}.`,
