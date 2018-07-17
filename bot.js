@@ -6,6 +6,8 @@ const ytdl = require('ytdl-core');
 const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
 
+var prefix = ayarlar.prefix;
+
 //DOSYALARI KOMUT OLARAK ALGILAMASI ICIN
 client.on("message", async msg => {
   if (msg.author.bot) return;
@@ -27,6 +29,18 @@ client.on('message', async msg => {
     await msg.react('🇦');
     msg.react('🇸');
   }
+});
+
+//BOT AÇILINCA
+client.on("ready", () => {
+  console.log('[------------] Muzik [-------------]');
+  console.log(`${client.guilds.size} tane sunucuya hizmet veriyor`);
+  console.log(`${client.users.size} kullaniciya hizmet veriyor`);
+  console.log(`${client.channels.size} kanala hizmet veriyor`);
+  console.log("Prefix: " + prefix);
+  console.log("Bot ID'si: " + client.user.id);
+  console.log("Bot Isim: " + client.user.username);
+  console.log('[------------] Muzik [-------------]');
 });
 
 //BOTU EKLEYEN SUNUCU VARSA LOG VERECEK
@@ -74,14 +88,37 @@ client.on("message", message => {
   if (message.channel.bot) return;
 });
 
+//Twitch Değişen Oynuyor
+const chalk = require('chalk');
+const moment = require('moment');
+const Discord = require('discord.js');
+const ayarlar = require('../ayarlar.json');
+const snekfetch = require('snekfetch');
+const api = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM1NDIzMTYzMDQwNTA0MjE3NiIsImJvdCI6dHJ1ZSwiaWF0IjoxNTE2Mjc0MTQ1fQ.2H9LjNjH6WFp5LmswfXAYSDsHQn2JSPPgbgf1WjSi_c';
+var prefix = ayarlar.prefix;
+module.exports = client => {
+  snekfetch.post(`https://discordbots.org/api/bots/${client.user.id}/stats`).set('Authorization', api).send({
+    server_count: client.guilds.size
+  }) console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] BOT: Aktif, Komutlar yüklendi!`);
+  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] BOT: ${client.user.username} ismi ile giriş yapıldı!`);
+  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] BOT: Oyun ismi ayarlandı!`);
+  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] BOT: Şu an ` + client.channels.size + ` adet kanala, ` + client.guilds.size + ` adet sunucuya ve ` + client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString() + ` kullanıcıya hizmet veriliyor!`);
+  var Games = ["Müzik Bot | Türkçe Dil Desteği", "Yeni Nesil Bot | v${ayarlar.sürüm} | JavaScript ile yazılmıştır", `${ayarlar.prefix}yardım | ${client.guilds.size} sunucu | ${client.users.size} kullanıcı`];
+  setInterval(function() {
+    var random = Math.floor(Math.random() * (Games.length - 0 + 1) + 0);
+    client.user.setGame(Games[random], "https://www.twitch.tv/enesonurata");
+  }, 2 * 2500);
+};
 
+//Bot İşlemleri
 client.on('ready', () => console.log('Bot Baglandi!'));
 client.on('disconnect', () => console.log('Internetten kaynakli bir sorun cikti.'));
 client.on('reconnecting', () => console.log('Bot tekrar baglandi.'));
 
+//Müzik
 client.on('message', async msg => {
   if (msg.author.bot) return undefined;
-  if (!msg.content.startsWith(PREFIX)) return undefined;
+  if (!msg.content.startsWith(prefix)) return undefined;
 
   const args = msg.content.split(' ');
   const searchString = args.slice(1).join(' ');
@@ -89,7 +126,7 @@ client.on('message', async msg => {
   const serverQueue = queue.get(msg.guild.id);
 
   let command = msg.content.toLowerCase().split(' ')[0];
-  command = command.slice(PREFIX.length)
+  command = command.slice(prefix.length)
 
   if (command === 'çal') {
     const voiceChannel = msg.member.voiceChannel;
