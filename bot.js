@@ -40,7 +40,7 @@ client.on("ready", () => {
   console.log(`${client.channels.size} kanala hizmet veriyor`);
   console.log("Prefix: " + prefix);
   console.log("Bot ID'si: " + client.user.id);
-  console.log(`Bot Isim: Muzik`; /*client.user.username)*/
+  console.log(`Bot Isim: Muzik`); /*client.user.username)*/
   console.log('[------------] Muzik [-------------]');
 });
 
