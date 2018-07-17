@@ -1,6 +1,9 @@
 {
   "prefix": "/",
-  "sahip": "274551537139712001",
-  "token": "process.env.BOT_TOKEN",
+  "PREFIX": "/",
+  "sahipID": "274551537139712001",
+  "sahipAdı": "EnesOnurAta",
+  "sürüm": "3",
+  "token": "process.env.Müzik_TOKEN",
   "GOOGLE_API_KEY": "AIzaSyDe021FDaJ9StqfyKO7Uf1CNI7DMIKbKAo"
 }
