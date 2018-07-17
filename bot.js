@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const ayarlar = require('./ayarlar.json');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
+const { Client, Util } = require('discord.js');
 const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./ayarlar');
 const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
