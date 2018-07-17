@@ -1,9 +1,6 @@
-﻿
 {
   "prefix": "/",
-  "PREFIX": "/",
   "sahip": "274551537139712001",
   "token": "process.env.BOT_TOKEN",
-  "TOKEN": "process.env.BOT_TOKEN",
   "GOOGLE_API_KEY": "AIzaSyDe021FDaJ9StqfyKO7Uf1CNI7DMIKbKAo"
 }
