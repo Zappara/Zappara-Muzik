@@ -4,7 +4,7 @@ const ayarlar = require('./ayarlar.json');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const youtube = new YouTube(GOOGLE_API_KEY);
-const GOOGLE_API_KEY = require('./ayarlar');
+const GOOGLE_API_KEY = ayarlar.GOOGLE_API_KEY;
 const queue = new Map();
 
 var prefix = ayarlar.prefix;
