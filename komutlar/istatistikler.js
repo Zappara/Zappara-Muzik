@@ -10,6 +10,7 @@ let embed = new Discord.RichEmbed()
 .addField("`" + prefix +"bilgilerim`", "Kullanıcının istatistiklerini gösterir")
 .addField("`" + prefix +"sunucubilgi`", "Sunucunun istatistiklerini gösterir")
 .addField("`" + prefix +"ping`", "Gecikmenizi gösterir")
+.addField("`" + prefix +"ailemiz`", "Botun hangi sunucuda ekli olduğunu gösterir")
 
 
 message.channel.send(embed);
