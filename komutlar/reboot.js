@@ -11,7 +11,7 @@ message.channel.sendMessage(' ```Botun yeniden başlatılmasına onay veriyorsan
   })
   .then((collected) => {
       message.channel.sendMessage(`**Bot yeniden başlatılıyor...**`).then(message => {
-      console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] Bot yeniden başlatılıyor...`)
+      console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] Bot Yeniden Baslatiliyor...`)
       process.exit(1);
     }).catch(console.error)
     })
@@ -29,7 +29,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'yeniden-başlat',
+  name: 'reboot',
   description: 'Botu Yeniden Başlatır',
-  usage: 'yeniden-başlat'
+  usage: 'reboot'
 };
