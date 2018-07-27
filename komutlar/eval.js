@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const ayarlar = require('../ayarlar.json')
 
 exports.run = (client, message, args) => {
-  if (message.author.id !== ayarlar.sahip) return message.channel.send('Benim Yapımcım Değilsin')
+  if (message.author.id !== ${ayarlar.sahip}) return message.channel.send(':x: Benim Yapımcım Değilsin')
     try {
       var code = args.join(" ");
       var evaled = eval(code);
